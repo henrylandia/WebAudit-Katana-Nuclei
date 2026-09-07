@@ -1,287 +1,233 @@
 <div align="center">
 
-# 🛡️ Web Audit
-### Katana + Nuclei
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=00FF9C&center=true&vCenter=true&width=600&lines=Web+Audit+%E2%80%94+Katana+%2B+Nuclei;Reconnaissance+%E2%86%92+Crawling+%E2%86%92+Scanning;Automated+Web+Security+Auditing" alt="Typing SVG" />
 
-```text
+<br>
+
+<pre>
 ██╗    ██╗███████╗██████╗      █████╗ ██╗   ██╗██████╗ ██╗████████╗
 ██║    ██║██╔════╝██╔══██╗    ██╔══██╗██║   ██║██╔══██╗██║╚══██╔══╝
 ██║ █╗ ██║█████╗  ██████╔╝    ███████║██║   ██║██║  ██║██║   ██║
 ██║███╗██║██╔══╝  ██╔══██╗    ██╔══██║██║   ██║██║  ██║██║   ██║
 ╚███╔███╔╝███████╗██████╔╝    ██╔══██║╚██████╔╝██████╔╝██║   ██║
  ╚══╝╚══╝ ╚══════╝╚═════╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝   ╚═╝
+</pre>
 
-              ╔══════════════════════════════════╗
-              ║      K A T A N A  +  N U C L E I ║
-              ╚══════════════════════════════════╝
-Automated Web Security Auditing
+**Automated Web Security Auditing — Katana + Nuclei + Bash**
 
+<p>
+  <img src="https://img.shields.io/badge/Shell-Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
+</p>
 
+<p>
+  <img src="https://img.shields.io/github/stars/henrylandia/WebAudit-Katana-Nuclei?style=social" />
+  <img src="https://img.shields.io/github/forks/henrylandia/WebAudit-Katana-Nuclei?style=social" />
+  <img src="https://img.shields.io/github/issues/henrylandia/WebAudit-Katana-Nuclei?color=orange" />
+  <img src="https://img.shields.io/github/last-commit/henrylandia/WebAudit-Katana-Nuclei?color=blueviolet" />
+</p>
 
-
-
-
-
-
-
-
-<br>
-
-Reconnaissance → Crawling → Endpoint Discovery → Template Scanning → Results
-
-<br>
-
-🚀 Installation •
-📖 Usage •
-🔎 Features •
-📂 Results •
-⚠️ Legal
+<p>
+  <a href="#-instalación">🚀 Installation</a> •
+  <a href="#-uso">📖 Usage</a> •
+  <a href="#-features">🔎 Features</a> •
+  <a href="#-resultados">📂 Results</a> •
+  <a href="#-disclaimer-legal">⚠️ Legal</a>
+</p>
 
 </div>
-🛡️ About
 
-Web Audit — Katana + Nuclei is a Bash automation framework created by Henry Molina for performing initial web security assessments in authorized environments.
+---
 
-The project combines tools from the ProjectDiscovery ecosystem to create a simple workflow:
+## 🛡️ Sobre el proyecto
 
-                         ┌──────────────────────┐
-                         │    AUTHORIZED TARGET │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │       KATANA         │
-                         │                      │
-                         │  Web Crawling        │
-                         │  JavaScript           │
-                         │  Forms                │
-                         │  Endpoints           │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │     DISCOVERED URLS  │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │       NUCLEI         │
-                         │                      │
-                         │  XSS                 │
-                         │  SQLi                │
-                         │  SSTI                │
-                         │  LFI                 │
-                         │  SSRF                │
-                         │  CORS                │
-                         │  CVEs                │
-                         │  Misconfigurations   │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │       RESULTS        │
-                         │                      │
-                         │  URLs                │
-                         │  Findings            │
-                         │  Logs                │
-                         │  Summary             │
-                         └──────────────────────┘
+**Web Audit — Katana + Nuclei** es un framework de automatización en Bash creado por **Henry Molina** para realizar evaluaciones iniciales de seguridad web en entornos autorizados.
 
-The goal is not to replace a complete penetration test.
+El proyecto combina herramientas del ecosistema **ProjectDiscovery** en un flujo simple:
 
-Instead, Web Audit provides a convenient starting point for reconnaissance and automated vulnerability detection.
+```mermaid
+flowchart TD
+    A["🎯 Authorized Target"] --> B["🕷️ Katana<br/>Crawling · JS · Forms · Endpoints"]
+    B --> C["🔗 Discovered URLs"]
+    C --> D["🧪 Nuclei<br/>XSS · SQLi · SSTI · LFI · SSRF · CORS · CVEs"]
+    D --> E["📊 Results<br/>URLs · Findings · Logs · Summary"]
 
-✨ Features
-Feature	Description
-🕷️ Katana Crawling	Discovers URLs and endpoints
-🎯 Domain Scope	Keeps crawling within root domain + subdomains
-📜 JavaScript Crawling	Parses JavaScript resources
-📝 Form Extraction	Extracts forms and input fields
-🧪 Nuclei Scanning	Runs template-based security checks
-🎯 Modular Scans	Select individual vulnerability categories
-📁 Automatic Reports	Organizes results by target and timestamp
-📊 Summary	Generates a simple audit summary
-🔧 Auto Installer	Installs required tools
-🔄 Auto Updates	Updates ProjectDiscovery tools/templates
-🖥️ Interactive CLI	Simple terminal menu
-🔎 What Does It Scan?
+    style A fill:#1f2937,color:#fff,stroke:#00FF9C
+    style B fill:#0f172a,color:#00FF9C,stroke:#00FF9C
+    style C fill:#1f2937,color:#fff,stroke:#38bdf8
+    style D fill:#0f172a,color:#f472b6,stroke:#f472b6
+    style E fill:#1f2937,color:#facc15,stroke:#facc15
+```
 
-The current version provides modules for:
+> El objetivo **no es reemplazar** un pentest completo, sino ofrecer un punto de partida ágil para reconocimiento y detección automatizada de vulnerabilidades.
 
-┌──────────────────────────────────────────────┐
-│               NUCLEI MODULES                 │
-├──────────────────────────────────────────────┤
-│                                              │
-│   01  XSS                 Cross-Site Script │
-│   02  SQLi                SQL Injection      │
-│   03  SSTI                Template Injection │
-│   04  LFI                 Local File Include │
-│   05  SSRF                Server-Side Req.   │
-│   06  CORS                CORS checks        │
-│   07  Headers             HTTP headers       │
-│   08  Exposure            Exposure checks    │
-│   09  CVE                 Known CVEs         │
-│   10  Misconfiguration    Misconfigurations  │
-│   11  General             General templates  │
-│                                              │
-└──────────────────────────────────────────────┘
-🎯 Scope Management
+---
 
-One of the important parts of the project is controlling the crawling scope.
+## ✨ Features
 
-Katana is executed using:
+| Feature | Descripción |
+|---|---|
+| 🕷️ **Katana Crawling** | Descubre URLs y endpoints |
+| 🎯 **Domain Scope** | Mantiene el crawling dentro del dominio raíz + subdominios |
+| 📜 **JavaScript Crawling** | Analiza recursos JavaScript |
+| 📝 **Form Extraction** | Extrae formularios y campos de entrada |
+| 🧪 **Nuclei Scanning** | Ejecuta checks de seguridad basados en templates |
+| 🎯 **Modular Scans** | Selección de categorías individuales de vulnerabilidad |
+| 📁 **Automatic Reports** | Organiza resultados por target y timestamp |
+| 📊 **Summary** | Genera un resumen simple de la auditoría |
+| 🔧 **Auto Installer** | Instala las herramientas requeridas |
+| 🔄 **Auto Updates** | Actualiza herramientas y templates de ProjectDiscovery |
+| 🖥️ **Interactive CLI** | Menú de terminal simple |
 
+---
+
+## 🔎 ¿Qué escanea?
+
+<div align="center">
+
+| # | Módulo | Descripción |
+|:-:|---|---|
+| 01 | 🟥 **XSS** | Cross-Site Scripting |
+| 02 | 🟧 **SQLi** | SQL Injection |
+| 03 | 🟨 **SSTI** | Server-Side Template Injection |
+| 04 | 🟩 **LFI** | Local File Inclusion |
+| 05 | 🟦 **SSRF** | Server-Side Request Forgery |
+| 06 | 🟪 **CORS** | Chequeos de CORS |
+| 07 | ⬜ **Headers** | Cabeceras HTTP |
+| 08 | 🟫 **Exposure** | Detección de exposición de datos |
+| 09 | 🔺 **CVE** | Vulnerabilidades conocidas |
+| 10 | 🔻 **Misconfiguration** | Malas configuraciones |
+| 11 | ⚪ **General** | Templates generales |
+
+</div>
+
+---
+
+## 🎯 Gestión de alcance (Scope)
+
+Una parte clave del proyecto es controlar el scope del crawling. Katana se ejecuta con:
+
+```bash
 -fs rdn
+```
 
-This means the crawler is intended to stay within the root domain and its subdomains.
+Esto mantiene el crawler dentro del **dominio raíz y sus subdominios**:
 
-For example:
-
+```
 example.com
-│
 ├── www.example.com
 ├── app.example.com
 ├── api.example.com
 ├── dev.example.com
 ├── staging.example.com
 └── admin.example.com
+```
 
-External domains referenced by the application are not intended to become part of the crawling scope.
+Los dominios externos referenciados por la aplicación (`google.com`, `microsoft.com`, `w3.org`, `cloudflare.com`, etc.) **no** entran en el scope del crawling. Muy útil para apps que cargan recursos de múltiples servicios de terceros.
 
-Examples:
+---
 
-google.com
-microsoft.com
-w3.org
-cloudflare.com
+## 🧰 Tecnologías
 
-This is especially useful for applications that load resources from multiple third-party services.
+<div align="center">
 
-🧰 Technologies
+| Herramienta | Uso |
+|---|---|
+| 🕷️ **[Katana](https://github.com/projectdiscovery/katana)** | Crawler web de alta velocidad — descubrimiento de endpoints, URLs, JS y formularios |
+| 🧪 **[Nuclei](https://github.com/projectdiscovery/nuclei)** | Scanner de vulnerabilidades basado en templates — CVEs, misconfigs, exposición |
+| 🌐 **[HTTPX](https://github.com/projectdiscovery/httpx)** | Toolkit HTTP auxiliar, integración planeada a futuro |
+| 🐚 **Bash** | Capa completa de automatización |
 
-Web Audit uses:
+</div>
 
-🕷️ Katana
+---
 
-High-speed web crawler from ProjectDiscovery.
+## 💻 Requisitos
 
-Used for:
+**Sistema operativo:** Linux (recomendado: **Kali Linux**)
 
-Endpoint discovery
-URL crawling
-JavaScript crawling
-Form extraction
-Web application reconnaissance
-🧪 Nuclei
+<details>
+<summary>📋 Distribuciones soportadas</summary>
 
-Template-based vulnerability scanner from ProjectDiscovery.
+- Debian
+- Ubuntu
+- Linux Mint
+- Pop!_OS
+- Fedora
+- RHEL
+- CentOS
+- Rocky Linux
+- AlmaLinux
+- Arch Linux
+- Manjaro
 
-Used for:
+</details>
 
-Known vulnerabilities
-Misconfigurations
-Security checks
-Exposure detection
-Technology-specific templates
-🌐 HTTPX
+**Dependencias:** Bash, Git, Go, Curl, Wget, ca-certificates, build tools, conexión a internet.
 
-ProjectDiscovery HTTP toolkit used as an auxiliary component and planned for further integration.
+> El script puede instalar automáticamente las dependencias principales en distribuciones soportadas.
 
-🐚 Bash
+---
 
-The entire automation layer is written in Bash.
+## 🚀 Instalación
 
-💻 Requirements
-Operating System
+**1. Clona el repositorio**
 
-The project is primarily designed for Linux environments.
-
-Recommended:
-
-Kali Linux
-
-Also intended to support:
-
-Debian
-Ubuntu
-Linux Mint
-Pop!_OS
-Fedora
-RHEL
-CentOS
-Rocky Linux
-AlmaLinux
-Arch Linux
-Manjaro
-Dependencies
-
-The project requires:
-
-Bash
-Git
-Go
-Curl
-Wget
-Ca-certificates
-Build tools
-Internet connection
-
-The script can automatically install the main dependencies on supported distributions.
-
-🚀 Installation
-1. Clone the repository
+```bash
 git clone https://github.com/henrylandia/WebAudit-Katana-Nuclei.git
-
-Enter the directory:
-
 cd WebAudit-Katana-Nuclei
-2. Give execution permission
+```
+
+**2. Da permisos de ejecución**
+
+```bash
 chmod +x web-audit.sh
-3. Validate the script
+```
 
-Before executing it, check the Bash syntax:
+**3. Valida el script**
 
+```bash
 bash -n web-audit.sh
+```
 
-If there is no output, the syntax check passed.
+Si no hay output, el chequeo de sintaxis pasó ✅
 
-4. Start Web Audit
+**4. Inicia Web Audit**
+
+```bash
 ./web-audit.sh
-
-Or:
-
+# o
 bash web-audit.sh
-🛠️ First-Time Setup
+```
 
-When running Web Audit on a new machine, select:
+---
 
+## 🛠️ Primer uso
+
+Al ejecutar Web Audit por primera vez, selecciona:
+
+```
 2) Instalar todas las dependencias
+```
 
-The installer attempts to configure:
+El instalador configura:
 
-┌─────────────────────────────┐
-│       INSTALLATION          │
-├─────────────────────────────┤
-│                             │
-│  ✓ System dependencies      │
-│  ✓ Go                       │
-│  ✓ Katana                   │
-│  ✓ Nuclei                   │
-│  ✓ HTTPX                    │
-│  ✓ Nuclei Templates         │
-│                             │
-└─────────────────────────────┘
+- ✅ Dependencias del sistema
+- ✅ Go
+- ✅ Katana
+- ✅ Nuclei
+- ✅ HTTPX
+- ✅ Nuclei Templates
 
-The Go binaries are installed under:
+Los binarios de Go se instalan en `$HOME/go/bin` y el script configura el `PATH` del usuario.
 
-$HOME/go/bin
+---
 
-and the script configures the user's PATH.
+## 📋 Menú principal
 
-📋 Main Menu
-
-After launching the script:
-
+```text
 ============================================================
                  WEB AUDIT - KATANA + NUCLEI
 ============================================================
@@ -295,78 +241,64 @@ Directorio de auditorías:
 4) Actualizar herramientas y templates
 5) Ver auditorías anteriores
 0) Salir
-🔍 Usage
-Step 1 — Start a new audit
+```
 
-Select:
+---
 
+## 🔍 Uso
+
+### Paso 1 — Iniciar una nueva auditoría
+
+```
 1) Nueva auditoría web
+```
 
-The script asks for the target:
+El script pide el target:
 
+```
 URL objetivo:
+```
 
-Example:
+Ejemplo: `https://app.example.com`
 
-https://app.example.com
+> Si escribes `app.example.com` sin protocolo, el script lo normaliza automáticamente a `https://app.example.com`
 
-If you enter:
+### Paso 2 — Profundidad de crawling
 
-app.example.com
+Profundidad por defecto: **5**
 
-the script automatically normalizes it to:
-
-https://app.example.com
-⚙️ Step 2 — Choose Crawling Depth
-
-The default crawling depth is:
-
-5
-
-Example:
-
+```
 Profundidad de Katana [5]:
+```
 
-You can adjust this depending on the size and complexity of the application.
+Ajústala según el tamaño y complejidad de la aplicación. Mayor profundidad = más requests y más URLs.
 
-Deeper crawling can generate significantly more requests and URLs.
+### Paso 3 — Katana
 
-🕷️ Step 3 — Katana
-
-The crawling phase uses:
-
+```bash
 katana \
     -u TARGET \
     -fs rdn \
     -d DEPTH \
     -jc \
     -fx
-Parameters
-Parameter	Purpose
--u	Target URL
--fs rdn	Root domain + subdomains
--d	Crawl depth
--jc	JavaScript crawling
--fx	Form extraction
-🔗 Step 4 — URL Collection
+```
 
-Katana produces the raw crawl output:
+| Parámetro | Propósito |
+|---|---|
+| `-u` | URL objetivo |
+| `-fs rdn` | Dominio raíz + subdominios |
+| `-d` | Profundidad de crawling |
+| `-jc` | JavaScript crawling |
+| `-fx` | Extracción de formularios |
 
-urls-raw.txt
+### Paso 4 — Recolección de URLs
 
-The script then generates:
+Katana genera el output crudo en `urls-raw.txt`. El script procesa y genera `urls.txt` con URLs únicas, y guarda el conteo en `url-count.txt`.
 
-urls.txt
+### Paso 5 — Nuclei
 
-containing the processed and unique URLs.
-
-The number of discovered URLs is stored in:
-
-url-count.txt
-🧪 Step 5 — Nuclei
-
-After crawling, Web Audit asks which Nuclei module should be executed:
-
+```
 1) XSS
 2) SQLi
 3) SSTI
@@ -380,22 +312,19 @@ After crawling, Web Audit asks which Nuclei module should be executed:
 11) General
 12) TODOS
 0) Omitir Nuclei
+```
 
-You can run a single module or all configured modules.
+Puedes correr un solo módulo o todos.
 
-📂 Results
+---
 
-Every audit is stored separately.
+## 📂 Resultados
 
-Default location:
+Cada auditoría se guarda por separado en `~/web-audits/`:
 
-~/web-audits/
-
-Example:
-
+```
 web-audits/
 └── app.example.com_20260907_153000/
-    │
     ├── TARGET.txt
     ├── urls-raw.txt
     ├── urls.txt
@@ -404,259 +333,217 @@ web-audits/
     ├── SUMMARY.txt
     │
     └── nuclei/
-        ├── xss.txt
-        ├── xss.log
-        ├── sqli.txt
-        ├── sqli.log
-        ├── ssti.txt
-        ├── ssti.log
-        ├── lfi.txt
-        ├── lfi.log
-        ├── ssrf.txt
-        ├── ssrf.log
-        ├── cors.txt
-        ├── cors.log
-        ├── headers.txt
-        ├── headers.log
-        ├── exposure.txt
-        ├── exposure.log
-        ├── cve.txt
-        ├── cve.log
-        ├── misconfig.txt
-        ├── misconfig.log
-        ├── general.txt
-        └── general.log
-📊 SUMMARY.txt
+        ├── xss.txt / xss.log
+        ├── sqli.txt / sqli.log
+        ├── ssti.txt / ssti.log
+        ├── lfi.txt / lfi.log
+        ├── ssrf.txt / ssrf.log
+        ├── cors.txt / cors.log
+        ├── headers.txt / headers.log
+        ├── exposure.txt / exposure.log
+        ├── cve.txt / cve.log
+        ├── misconfig.txt / misconfig.log
+        └── general.txt / general.log
+```
 
-At the end of the audit, Web Audit generates:
+### 📊 SUMMARY.txt
 
-SUMMARY.txt
+Al finalizar la auditoría, Web Audit genera un `SUMMARY.txt` con:
 
-The summary contains information such as:
+- Target
+- Hostname
+- Fecha
+- Número de URLs
+- Resultados de Nuclei
+- Directorio de salida
 
-Target
-Hostname
-Date
-Number of URLs
-Nuclei results
-Output directory
+---
 
-This makes it easier to review an assessment without opening every individual log.
+## 🔄 Actualizar herramientas
 
-🔄 Updating Tools
+Desde el menú principal:
 
-From the main menu select:
-
+```
 4) Actualizar herramientas y templates
+```
 
-This updates the installed ProjectDiscovery tools and Nuclei templates.
+O manualmente:
 
-You can also update Nuclei templates manually:
-
+```bash
 nuclei -update-templates
-🔧 Troubleshooting
-Permission denied
+```
 
-Run:
+---
 
+## 🔧 Troubleshooting
+
+<details>
+<summary><b>Permission denied</b></summary>
+
+```bash
 chmod +x web-audit.sh
-Bash syntax error
+```
 
-Run:
+</details>
 
+<details>
+<summary><b>Bash syntax error</b></summary>
+
+```bash
 bash -n web-audit.sh
-Katana not found
+```
 
-Check:
+</details>
 
+<details>
+<summary><b>Katana not found</b></summary>
+
+```bash
 ls -la "$HOME/go/bin/katana"
-
-Then:
-
 export PATH="$HOME/go/bin:$PATH"
-Nuclei not found
+```
 
-Check:
+</details>
 
+<details>
+<summary><b>Nuclei not found</b></summary>
+
+```bash
 ls -la "$HOME/go/bin/nuclei"
-
-Then:
-
 export PATH="$HOME/go/bin:$PATH"
-Check installed tools
+```
+
+</details>
+
+<details>
+<summary><b>Comprobar herramientas instaladas</b></summary>
+
+```bash
 katana -version
 nuclei -version
 httpx -version
-🧪 Recommended Workflow
+```
 
-For a normal authorized assessment:
+</details>
 
-       ┌──────────────────────┐
-       │   Authorized Target  │
-       └──────────┬───────────┘
-                  │
-                  ▼
-       ┌──────────────────────┐
-       │       KATANA         │
-       │      Crawling        │
-       └──────────┬───────────┘
-                  │
-          ┌───────┴────────┐
-          │                │
-          ▼                ▼
-       URLs             Forms
-          │                │
-          └───────┬────────┘
-                  │
-                  ▼
-       ┌──────────────────────┐
-       │       NUCLEI         │
-       │  Template Scanning   │
-       └──────────┬───────────┘
-                  │
-                  ▼
-       ┌──────────────────────┐
-       │       RESULTS        │
-       │                      │
-       │  Findings            │
-       │  Logs                │
-       │  URLs                │
-       │  Summary             │
-       └──────────────────────┘
-⚠️ Limitations
+---
 
-Web Audit is designed for initial automated assessment.
+## ⚠️ Limitaciones
 
-It does not replace a manual penetration test or a complete application security assessment.
+Web Audit está diseñado para una **evaluación automatizada inicial**. No reemplaza un pentest manual ni una evaluación completa de seguridad de aplicaciones.
 
-Automated crawling and template-based scanning can miss vulnerabilities involving:
+El crawling automatizado y el escaneo por templates puede pasar por alto vulnerabilidades relacionadas con:
 
-Authentication
-Authorization
-Business logic
-Complex workflows
-Multi-step transactions
-JSON APIs
-GraphQL
-WebSockets
-Session-dependent functionality
-Client-side vulnerabilities
-Custom application logic
-Vulnerabilities without an existing Nuclei template
+- Autenticación y autorización
+- Lógica de negocio
+- Flujos y transacciones multi-paso
+- APIs JSON / GraphQL / WebSockets
+- Funcionalidad dependiente de sesión
+- Vulnerabilidades del lado del cliente
+- Lógica custom de la aplicación
+- Vulnerabilidades sin template existente en Nuclei
 
-A clean scan does not mean that an application is secure.
+> **Un escaneo limpio no significa que la aplicación sea segura.**
 
-🔐 Legal Disclaimer
-Authorized Use Only
+---
 
-This software is intended exclusively for:
+## 🔐 Disclaimer legal
 
-Your own applications.
-Authorized penetration testing.
-Security laboratories.
-CTF environments.
-Development environments.
-Staging environments.
-Systems for which you have explicit permission.
+<div align="center">
 
-Do not scan third-party infrastructure without authorization.
+### ⚠️ Uso autorizado únicamente ⚠️
 
-The author, Henry Molina, is not responsible for any misuse of this software or for damage caused by unauthorized testing.
+</div>
 
-By using this project, you accept responsibility for ensuring that your activities comply with applicable laws, regulations, contracts and authorization boundaries.
+Este software está pensado exclusivamente para:
 
-🚧 Roadmap
+- ✅ Tus propias aplicaciones
+- ✅ Pentesting autorizado
+- ✅ Laboratorios de seguridad
+- ✅ Entornos CTF
+- ✅ Entornos de desarrollo y staging
+- ✅ Sistemas con permiso explícito
 
-Future improvements may include:
+**No escanees infraestructura de terceros sin autorización.**
 
- HTTPX live-host verification
- Multi-target support
- Subdomain enumeration
- Improved URL filtering
- HTML reports
- JSON reports
- CSV export
- Vulnerability statistics
- Authentication support
- Custom Nuclei templates
- Configuration file
- Custom output directory
- Improved logging
- Parallel scanning options
- Additional ProjectDiscovery integrations
- Web-based dashboard
-🤝 Contributing
+El autor, Henry Molina, no se hace responsable del mal uso de este software ni de daños causados por pruebas no autorizadas. Al usar este proyecto aceptas la responsabilidad de garantizar que tus actividades cumplen con las leyes, regulaciones, contratos y límites de autorización aplicables.
 
-Contributions, bug reports and suggestions are welcome.
+---
 
-Fork the project
+## 🚧 Roadmap
+
+- [ ] Verificación de hosts vivos con HTTPX
+- [ ] Soporte multi-target
+- [ ] Enumeración de subdominios
+- [ ] Filtrado de URLs mejorado
+- [ ] Reportes HTML / JSON / CSV
+- [ ] Estadísticas de vulnerabilidades
+- [ ] Soporte de autenticación
+- [ ] Templates de Nuclei personalizados
+- [ ] Archivo de configuración
+- [ ] Directorio de salida personalizable
+- [ ] Logging mejorado
+- [ ] Escaneo en paralelo
+- [ ] Más integraciones con ProjectDiscovery
+- [ ] Dashboard web
+
+---
+
+## 🤝 Contribuir
+
+¡Contribuciones, reportes de bugs y sugerencias son bienvenidas!
+
+```bash
 git clone https://github.com/henrylandia/WebAudit-Katana-Nuclei.git
 cd WebAudit-Katana-Nuclei
-
-Create a branch:
-
 git checkout -b feature/my-feature
 
-Make your changes and test them:
-
+# haz tus cambios y valida
 bash -n web-audit.sh
-
-Then commit:
 
 git add .
 git commit -m "Add my feature"
 git push origin feature/my-feature
+```
 
-Open a Pull Request on GitHub.
+Luego abre un **Pull Request** en GitHub.
 
-⭐ Support the Project
+---
 
-If you find Web Audit — Katana + Nuclei useful:
+## ⭐ Apoya el proyecto
 
-⭐ Star the repository
-🐛 Report bugs
-💡 Suggest improvements
-🔧 Submit Pull Requests
+Si **Web Audit — Katana + Nuclei** te resulta útil:
 
-Repository:
+⭐ Dale una estrella al repo · 🐛 Reporta bugs · 💡 Sugiere mejoras · 🔧 Envía Pull Requests
 
-https://github.com/henrylandia/WebAudit-Katana-Nuclei
+**Repositorio:** [github.com/henrylandia/WebAudit-Katana-Nuclei](https://github.com/henrylandia/WebAudit-Katana-Nuclei)
 
-👨‍💻 Author
+---
+
 <div align="center">
-Henry Molina
 
-Security Researcher / Developer
+## 👨‍💻 Autor
 
-GitHub:
+**Henry Molina**
+*Security Researcher / Developer*
 
-@henrylandia
+[![GitHub](https://img.shields.io/badge/GitHub-@henrylandia-181717?style=for-the-badge&logo=github)](https://github.com/henrylandia)
 
-Project:
+### 📜 Licencia
 
-WebAudit-Katana-Nuclei
+Este proyecto está bajo la **Licencia MIT** — ver [LICENSE](LICENSE) para el texto completo.
+
+<br>
+
+```
+╔══════════════════════════════════════════════════════════╗
+║             WEB AUDIT — KATANA + NUCLEI                  ║
+║       Authorized Security Testing & Research              ║
+╚══════════════════════════════════════════════════════════╝
+```
+
+**Built with ❤️ and Bash by Henry Molina**
+
+⭐ *Star the repo if you find it useful!*
 
 </div>
-📜 License
-
-This project is released under the MIT License.
-
-See:
-
-LICENSE
-
-for the complete license text.
-
-<div align="center">
-╔══════════════════════════════════════════════════════════╗
-║                                                          ║
-║             WEB AUDIT — KATANA + NUCLEI                 ║
-║                                                          ║
-║       Authorized Security Testing & Research             ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-Built with ❤️ and Bash by Henry Molina
-
-⭐ Star the repo if you find it useful!
-
-</div> ```
